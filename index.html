@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMMAX | Mobiles & Accessories</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo" onclick="showHome()">
+        FAM<span>MAX</span>
+        <small>SMART SHOPPING</small>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput"
+               placeholder="Search mobiles, cases, headphones & more..."
+               oninput="searchProducts()">
+        <button onclick="searchProducts()">🔍</button>
+    </div>
+
+    <div class="header-actions">
+        <button onclick="openLogin()">👤 <span>Login</span></button>
+        <button onclick="showWishlist()">♡ <span>Wishlist</span></button>
+        <button onclick="openCart()">🛒 <span>Cart</span>
+            <b id="cartCount">0</b>
+        </button>
+    </div>
+
+</header>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+    <button onclick="filterCategory('All')">Home</button>
+    <button onclick="filterCategory('Mobiles')">📱 Mobiles</button>
+    <button onclick="filterCategory('Cases')">📱 Back Cases</button>
+    <button onclick="filterCategory('Tempered Glass')">🛡️ Tempered Glass</button>
+    <button onclick="filterCategory('Audio')">🎧 Audio</button>
+    <button onclick="filterCategory('Cables')">🔌 Cables</button>
+    <button onclick="filterCategory('Chargers')">⚡ Chargers</button>
+    <button onclick="filterCategory('Smartwatch')">⌚ Smart Watches</button>
+    <button onclick="showAbout()">About</button>
+    <button onclick="showContact()">Contact</button>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="homePage">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+            <p class="tag">WELCOME TO FAMMAX</p>
+
+            <h1>
+                Everything You Need.<br>
+                <span>One Smart Store.</span>
+            </h1>
+
+            <p>
+                Smartphones, accessories and everyday tech —
+                all in one place.
+            </p>
+
+            <button class="shop-btn" onclick="filterCategory('Mobiles')">
+                Shop Mobiles →
+            </button>
+        </div>
+
+        <div class="hero-phone">
+            📱
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="section">
+
+        <div class="section-title">
+            <div>
+                <p>EXPLORE</p>
+                <h2>Shop by Category</h2>
+            </div>
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category-card" onclick="filterCategory('Mobiles')">
+                <div>📱</div>
+                <h3>Mobiles</h3>
+                <p>Latest Smartphones</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Cases')">
+                <div>📱</div>
+                <h3>Back Cases</h3>
+                <p>Stylish Protection</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Tempered Glass')">
+                <div>🛡️</div>
+                <h3>Tempered Glass</h3>
+                <p>Screen Protection</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Audio')">
+                <div>🎧</div>
+                <h3>Audio</h3>
+                <p>Headphones & Earbuds</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Cables')">
+                <div>🔌</div>
+                <h3>USB Cables</h3>
+                <p>Fast Charging</p>
+            </div>
+
+            <div class="category-card" onclick="filterCategory('Chargers')">
+                <div>⚡</div>
+                <h3>Chargers</h3>
+                <p>Power Up Faster</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="section products-section">
+
+        <div class="section-title">
+
+            <div>
+                <p>FAMMAX STORE</p>
+                <h2 id="productHeading">Featured Products</h2>
+            </div>
+
+            <select id="sortSelect" onchange="sortProducts()">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+
+        </div>
+
+        <div id="productGrid" class="product-grid"></div>
+
+    </section>
+
+
+    <!-- WHY FAMMAX -->
+
+    <section class="why-fammax">
+
+        <div>
+            <span>🚚</span>
+            <h3>Fast Delivery</h3>
+            <p>Quick and reliable delivery</p>
+        </div>
+
+        <div>
+            <span>🔒</span>
+            <h3>Secure Shopping</h3>
+            <p>Safe and trusted checkout</p>
+        </div>
+
+        <div>
+            <span>✓</span>
+            <h3>Genuine Products</h3>
+            <p>Quality products you can trust</p>
+        </div>
+
+        <div>
+            <span>💬</span>
+            <h3>Customer Support</h3>
+            <p>We're here when you need us</p>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="aboutPage" class="content-page hidden">
+
+    <div class="page-container">
+
+        <p class="tag">ABOUT FAMMAX</p>
+
+        <h1>Technology Made Simple.</h1>
+
+        <p class="large-text">
+            FAMMAX is a modern mobile and electronics shopping platform
+            created to make technology shopping simple, reliable and convenient.
+        </p>
+
+        <div class="about-grid">
+
+            <div>
+                <h3>Our Mission</h3>
+                <p>
+                    To provide smartphones and accessories through a
+                    simple and customer-friendly shopping experience.
+                </p>
+            </div>
+
+            <div>
+                <h3>Our Vision</h3>
+                <p>
+                    To build a trusted technology marketplace where
+                    customers can find everything they need in one place.
+                </p>
+            </div>
+
+            <div>
+                <h3>Why FAMMAX?</h3>
+                <p>
+                    Genuine products, transparent pricing, easy ordering
+                    and dependable customer support.
+                </p>
+            </div>
+
+        </div>
+
+        <button class="shop-btn" onclick="showHome()">Start Shopping →</button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contactPage" class="content-page hidden">
+
+    <div class="page-container">
+
+        <p class="tag">GET IN TOUCH</p>
+        <h1>Contact FAMMAX</h1>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+                <span>📞</span>
+                <h3>Phone</h3>
+                <p>+91 7010212615</p>
+            </div>
+
+            <div class="contact-card">
+                <span>📧</span>
+                <h3>Email</h3>
+                <p>support@fammax.in</p>
+            </div>
+
+            <div class="contact-card">
+                <span>📍</span>
+                <h3>Store</h3>
+                <p>coimbatore, Tamil Nadu</p>
+            </div>
+
+            <div class="contact-card">
+                <span>🕐</span>
+                <h3>Working Hours</h3>
+                <p>10:00 AM – 9:00 PM</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<div id="cartPanel" class="side-panel">
+
+    <div class="panel-header">
+        <h2>Your Cart</h2>
+        <button onclick="closeCart()">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-bottom">
+
+        <div class="total-row">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+
+        <button class="checkout-btn" onclick="openCheckout()">
+            Proceed to Checkout →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div id="productModal" class="modal">
+
+    <div class="modal-box product-modal">
+
+        <button class="close-modal" onclick="closeProduct()">✕</button>
+
+        <div id="productDetails"></div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-box auth-box">
+
+        <button class="close-modal" onclick="closeLogin()">✕</button>
+
+        <div class="auth-logo">
+            FAM<span>MAX</span>
+        </div>
+
+        <h2>Welcome Back</h2>
+        <p>Login to continue shopping</p>
+
+        <input type="email" id="loginEmail" placeholder="Email address">
+        <input type="password" id="loginPassword" placeholder="Password">
+
+        <button class="primary-btn" onclick="loginUser()">Login</button>
+
+        <p class="signup-text">
+            New to FAMMAX?
+            <b onclick="showSignup()">Create Account</b>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section id="checkoutPage" class="content-page hidden">
+
+    <div class="checkout-container">
+
+        <div class="checkout-main">
+
+            <p class="tag">CHECKOUT</p>
+            <h1>Complete Your Order</h1>
+
+            <div class="checkout-card">
+
+                <h2>Delivery Details</h2>
+
+                <div class="form-row">
+                    <input id="customerName" placeholder="Full Name">
+                    <input id="customerPhone" placeholder="Mobile Number">
+                </div>
+
+                <input id="customerEmail" placeholder="Email Address">
+
+                <textarea id="customerAddress"
+                    placeholder="Complete Delivery Address"></textarea>
+
+                <div class="form-row">
+                    <input id="customerCity" placeholder="City">
+                    <input id="customerPincode" placeholder="Pincode">
+                </div>
+
+            </div>
+
+
+            <div class="checkout-card">
+
+                <h2>Payment Method</h2>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="UPI" checked>
+                    <span>📲</span>
+                    UPI
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="Card">
+                    <span>💳</span>
+                    Credit / Debit Card
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" value="COD">
+                    <span>💵</span>
+                    Cash on Delivery
+                </label>
+
+            </div>
+
+            <button class="place-order-btn" onclick="placeOrder()">
+                Place Order →
+            </button>
+
+        </div>
+
+
+        <div class="checkout-summary">
+
+            <h2>Order Summary</h2>
+
+            <div id="checkoutItems"></div>
+
+            <hr>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotal">₹0</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span>FREE</span>
+            </div>
+
+            <div class="summary-total">
+                <span>Total</span>
+                <strong id="checkoutTotal">₹0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER SUCCESS ================= -->
+
+<div id="successModal" class="modal">
+
+    <div class="modal-box success-box">
+
+        <div class="success-icon">✓</div>
+
+        <h1>Order Placed!</h1>
+
+        <p>Your FAMMAX order has been successfully placed.</p>
+
+        <div class="order-id">
+            Order ID: <strong id="orderId"></strong>
+        </div>
+
+        <button class="primary-btn" onclick="finishOrder()">
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        FAM<span>MAX</span>
+    </div>
+
+    <p>Smart shopping. Better technology.</p>
+
+    <div class="footer-links">
+        <span onclick="showAbout()">About Us</span>
+        <span onclick="showContact()">Contact</span>
+        <span>Privacy Policy</span>
+        <span>Terms & Conditions</span>
+        <span>Return Policy</span>
+    </div>
+
+    <p class="copyright">
+        ©️ 2026 FAMMAX. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
